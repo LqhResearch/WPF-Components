@@ -1,0 +1,69 @@
+﻿<Window x:Class="VS_WPF_UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VS_WPF_UI"
+        mc:Ignorable="d" Title="Main"
+        WindowStyle="None" AllowsTransparency="True" Background="Transparent"
+        Width="800" Height="400" MouseDown="Window_MouseDown">
+    <Window.Resources>
+        <SolidColorBrush x:Key="GreenColor" Color="#00C897" />
+        <SolidColorBrush x:Key="PrimaryColor" Color="#BF81AA"/>
+
+        <Style x:Key="txblForm" TargetType="TextBlock">
+            <Setter Property="Background" Value="{StaticResource PrimaryColor}" />
+            <Setter Property="Foreground" Value="#FFFFFF" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Padding" Value="16 8" />
+            <Setter Property="TextAlignment" Value="Center" />
+        </Style>
+    </Window.Resources>
+
+    <Border CornerRadius="16" Background="White" BorderBrush="Black" BorderThickness="1">
+        <DockPanel>
+            <Border DockPanel.Dock="Top" CornerRadius="16 16 0 0" Background="{StaticResource GreenColor}" BorderThickness="0 0 0 1" BorderBrush="#000000">
+                <Grid>
+                    <TextBlock Text="Thiết kế thành phần WPF" Foreground="#FFFFFF" FontSize="20" FontWeight="Bold" Padding="16 8"/>
+                    <Ellipse x:Name="elpClose" Fill="Red" ToolTip="Đóng" Width="20" Height="20" Margin="0 0 10 0" HorizontalAlignment="Right" MouseLeftButtonDown="elpClose_MouseLeftButtonDown"/>
+                    <Ellipse x:Name="elpMaxWindow" Fill="Yellow" ToolTip="Phóng to" Width="20" Height="20" Margin="0 0 40 0" HorizontalAlignment="Right" MouseLeftButtonDown="elpMaxWindow_MouseLeftButtonDown" />
+                    <Ellipse x:Name="elpMinWindow" Fill="Green" ToolTip="Thu nhỏ" Width="20" Height="20" Margin="0 0 70 0" HorizontalAlignment="Right" MouseLeftButtonDown="elpMinWindow_MouseLeftButtonDown"/>
+                </Grid>
+            </Border>
+            <Border DockPanel.Dock="Bottom" CornerRadius="0 0 16 16">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"></ColumnDefinition>
+                        <ColumnDefinition Width="110"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Grid.Column="0" BorderThickness="0 0 1 0" BorderBrush="#000000">
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource txblForm}" Text="Button"/>
+                            <Button Content="Btn" Style="{StaticResource Btn}" Margin="8 8 8 0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                            <Button Content="BtnOutline" Style="{StaticResource BtnOutline}" Margin="8 8 8 0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                            <Button Content="BtnTransparent" Style="{StaticResource BtnTransparent}" Margin="8 8 8 0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                            <Button Content="BtnIcon" Style="{StaticResource BtnIcon}" Margin="8 8 8 0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                            <Button Content="BtnIconText" Style="{StaticResource BtnIconText}" Margin="8 8 8 0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                        </StackPanel>
+                    </Border>
+
+                    <Border Grid.Column="1" BorderThickness="0 0 1 0" BorderBrush="#000000">
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource txblForm}" Text="Badge"/>
+                            <Label Content="Badge" Style="{StaticResource Badge}" Margin="8 8 8 0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                            <Label Content="Quản trị viên" Style="{StaticResource Badge}" Background="#6BCB77" Margin="8 8 8 0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                            <Label Content="Thành viên" Style="{StaticResource Badge}" Background="#FFC107" Foreground="#000000" Margin="8 8 8 0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </Border>
+        </DockPanel>
+    </Border>
+</Window>
